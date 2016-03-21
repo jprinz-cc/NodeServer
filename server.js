@@ -1,6 +1,7 @@
 var http = require('http');
 var fs = require('fs');
 var path = require('path');
+var util = require('util');
 
 
 var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
@@ -52,4 +53,4 @@ var server = http.createServer(function (req, res) {
         send404(res);
     }
 }).listen(port, ipaddr);
-console.log('server running on port 3000');
+util.log('Server running on port', port, 'and IP', ipaddr);
