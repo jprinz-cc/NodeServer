@@ -2,6 +2,13 @@ var http = require('http');
 var fs = require('fs');
 var path = require('path');
 
+
+var ipaddr = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+
+
+
+
 function send404(response) {
     response.writeHead(404, { 'Content-Type': 'text/plain' });
     response.write('Error 404: Resource not found.');
@@ -44,5 +51,5 @@ var server = http.createServer(function (req, res) {
     } else {
         send404(res);
     }
-}).listen(3000);
+}).listen(port);
 console.log('server running on port 3000');
