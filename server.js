@@ -51,5 +51,5 @@ var server = http.createServer(function (req, res) {
     } else {
         send404(res);
     }
-}).listen(port);
+}).listen(port, ipaddr);
 console.log('server running on port 3000');
